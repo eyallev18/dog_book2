@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './HomePage.css';
-import { Jumbotron, Button } from 'react-bootstrap';
+import { Jumbotron, DropdownButton, Dropdown } from 'react-bootstrap';
+
 
 
 class HomePage extends Component {
@@ -16,10 +17,14 @@ class HomePage extends Component {
                 <Jumbotron>
                     <h1 className="dogbreed">Dog Book</h1>
                     <p>
-                        Mans Best Firend
+                        Man's Best Firend
                     </p>
                     <p>
-                        <Button variant="success" href="#/login">Login</Button>
+                        <DropdownButton id="dropdown-basic-button" title="Dog Breed">
+                            <Dropdown.Item href="#/action-1">Wolf</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        </DropdownButton>
                     </p>
                 </Jumbotron>
             </div>
