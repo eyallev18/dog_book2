@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ButtonToolbar, Button } from 'react-bootstrap';
+import BreedsPage from './pages/Breeds';
 
 class App extends React.Component {
   render() {
@@ -28,7 +29,7 @@ class App extends React.Component {
           <HomePage />
         </Route>
         <Route exact path="/breeds">
-          <Button variant="primary">secondary</Button>
+          <BreedsPage selectedDog={this.props.selectedDog} />
         </Route>
         <Route exact path="/specificbreed">
           <Button variant="primary">Light</Button>
