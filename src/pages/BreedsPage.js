@@ -22,9 +22,9 @@ class BreedsPage extends Component {
     render() {
 
 
-        // if (!this.props.selectedDog) {
-        //     return <Redirect to="/" />
-        // }
+        if (!this.props.selectedDog) {
+            return <Redirect to="/" />
+        }
 
         // const recipesView = recipes.map(recipe =>
         //     <Col lg={3} md={6} key={recipe.id}>
@@ -36,7 +36,7 @@ class BreedsPage extends Component {
 
                 <Container>
                     <div className="recipes-header">
-                        <h1>{this.state.selectedDog}'s Breed</h1>
+                        <h1>{this.props.selectedDog}'s Breed</h1>
                         {/*<Button onClick={() => { this.setState({ showNewRecipeModal: true }) }}>New Recipe</Button> */}
                     </div>
                     {/*}  <Row>
