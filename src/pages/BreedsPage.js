@@ -9,13 +9,20 @@ import './BreedsPage.css'
 class BreedsPage extends Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            selectedDog: this.props.selectedDog
+        }
+        this.setState = ({
+            selectedDog: !this.props.selectedDog
+        })
 
     }
+
+
     render() {
 
 
-        // if (!activeUser) {
+        // if (!this.props.selectedDog) {
         //     return <Redirect to="/" />
         // }
 
@@ -29,7 +36,7 @@ class BreedsPage extends Component {
 
                 <Container>
                     <div className="recipes-header">
-                        <h1>{this.props.selectedDog}'s Breed</h1>
+                        <h1>{this.state.selectedDog}'s Breed</h1>
                         {/*<Button onClick={() => { this.setState({ showNewRecipeModal: true }) }}>New Recipe</Button> */}
                     </div>
                     {/*}  <Row>
