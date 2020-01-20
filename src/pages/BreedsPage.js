@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button, Modal } from 'react-bootstrap'
+import './BreedsPage.css'
+import { Container, Row, Col, Button, Modal, Card } from 'react-bootstrap';
 //import RecipeNavbar from '../components/RecipeNavbar';
 import { Redirect } from 'react-router-dom';
 //import RecipeCard from '../components/RecipeCard';
-import './BreedsPage.css'
+
+import Axios from "axios";
 
 
 class BreedsPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            dogs: [],
             selectedDog: this.props.selectedDog
+
         }
+        //     this.addDog = this.addDog.bind(this);
         this.setState = ({
             selectedDog: !this.props.selectedDog
         })
+
         //  this.backToDogSelect = this.backToDogSelect.bind(this);
     }
     // backToDogSelect() {
@@ -23,7 +29,20 @@ class BreedsPage extends Component {
     //     this.state.selectedDog = "";
     //       return <Redirect to="/" />
 
+    // async componentDidMount() {
+    //     const breedUrl = ('https://dog.ceo/api/breed/' + this.props.selectedDog + '/images')
+    //     const res2 = await Axios.get(breedUrl)
+    //     this.state.dogs = Object.values(res2.data.message)
 
+    // this.setState({
+    //     dogs: dogSelectedBreed
+
+    // });
+
+
+
+
+    // }
 
 
 
@@ -32,16 +51,40 @@ class BreedsPage extends Component {
     render() {
 
 
-        if (!this.state.selectedDog) {
+        if ((!this.state.selectedDog) || (this.state.selectedDog === 'select')) {
             return <Redirect to="/" />
         }
+
+        //  .then(response => {
+        //const breedNamesIndex = Object.keys(resBreed.data.message)
+
+
         let { selectedDog } = this.state;
+
+
 
         // const recipesView = recipes.map(recipe =>
         //     <Col lg={3} md={6} key={recipe.id}>
         //         <RecipeCard recipe={recipe} />
         //     </Col>)
+        const listDogImage = this.props.dogsView.map((dogtype, index) => {
+            return (<div>
 
+                <Card>
+                    <Card.Img variant="top" src={dogtype} />
+                    <Card.Body>
+                        <Card.Title></Card.Title>
+                        <Card.Text>
+
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+
+            </div>
+
+            );
+        })
+        //  key={index} data-index={index}
         return (
             <div>
 
@@ -50,8 +93,18 @@ class BreedsPage extends Component {
                         <h1 className="text-center">{this.props.selectedDog}'s Breed</h1>
                         {/* <Button variant="primary" type="button" onClick={() => { this.backToDogSelect() }}>Back to Breed Selection</Button> */}
                         <Button variant="primary" type="button" onClick={() => { this.props.handlebacktohomepage(); this.state.selectedDog = ""; }}>Back to Breed Selection</Button>
+                        {/* <img src={this.props.dogsView[0]} alt="state" /> */}
                         {/* <Button variant="primary" type="button" onClick={() => { this.setState({ selectedDog: "" }) }}>Back to Breed Selection</Button> */}
+                    </div>
+                    <div>
+                        <Row>
+                            {/*key={index}>*/}
 
+                            {listDogImage}
+
+
+
+                        </Row>
                     </div>
                     {/*  <Row>
                         {recipesView}
