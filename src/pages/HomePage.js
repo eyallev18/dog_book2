@@ -18,7 +18,7 @@ class HomePage extends Component {
     render() {
         const { dogbreeds, handleSelection } = this.props;
         const listGroupItems = dogbreeds.map((dogtype, index) => {
-            return (<option value={dogtype} key={index} data-index={index} action onChange={this.handleSelection}> {dogtype}</option>);
+            return (<option value={dogtype} key={index} data-index={index} > {dogtype}</option>);
         })
         if (this.props.redirectToBreedsPage) {
             return <Redirect to="/breeds" />
@@ -31,7 +31,8 @@ class HomePage extends Component {
                     <p>
                         Man's Best Firend
                     </p>
-                    <select onChange={handleSelection} value={this.props.value} >
+                    <select onChangeCapture={handleSelection} value="" >
+                        <option value="" selected disabled hidden > Choose here</option>
                         {listGroupItems}
                     </select>
 

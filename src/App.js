@@ -12,10 +12,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       dogbreeds: [],
-      value: '',
+      value: 'select',
       redirectToBreedsPage: false
     }
     this.handleSelection = this.handleSelection.bind(this);
+    this.handlebacktohomepage = this.handlebacktohomepage.bind(this);
+
   }
   async   componentDidMount() {
     // const res = await axios.get("https://dog.ceo/api/breeds/list/all");
@@ -52,6 +54,24 @@ class App extends React.Component {
 
 
   }
+  handlebacktohomepage() {
+    // this.props.onSelectedResult(parseInt(ev.target.getAttribute("data-index")));
+    this.setState({
+      value: "select",
+      redirectToBreedsPage: false,
+
+
+
+
+    })
+
+
+
+
+    //<Redirect to="/breeds" />
+
+
+  }
 
   render() {
     //alert(this.state.value)
@@ -65,11 +85,11 @@ class App extends React.Component {
           <HomePage dogbreeds={this.state.dogbreeds} handleSelection={this.handleSelection} redirectToBreedsPage={this.state.redirectToBreedsPage} />
         </Route>
         <Route exact path="/breeds">
-          <BreedsPage selectedDog={this.state.value} handleSelection={this.handleSelection} />
-          <Button variant="primary">Light</Button>
+          <BreedsPage selectedDog={this.state.value} handlebacktohomepage={this.handlebacktohomepage} />
+
         </Route>
         <Route exact path="/specificbreed">
-          <Button variant="primary">Light</Button>
+          <Button variant="primary" >Light</Button>
 
         </Route>
 

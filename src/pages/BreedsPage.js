@@ -15,16 +15,27 @@ class BreedsPage extends Component {
         this.setState = ({
             selectedDog: !this.props.selectedDog
         })
-
+        //  this.backToDogSelect = this.backToDogSelect.bind(this);
     }
+    // backToDogSelect() {
 
+    //     this.props.handlebacktohomepage();
+    //     this.state.selectedDog = "";
+    //       return <Redirect to="/" />
+
+
+
+
+
+    // }
 
     render() {
 
 
-        if (!this.props.selectedDog) {
+        if (!this.state.selectedDog) {
             return <Redirect to="/" />
         }
+        let { selectedDog } = this.state;
 
         // const recipesView = recipes.map(recipe =>
         //     <Col lg={3} md={6} key={recipe.id}>
@@ -36,10 +47,13 @@ class BreedsPage extends Component {
 
                 <Container>
                     <div className="recipes-header">
-                        <h1>{this.props.selectedDog}'s Breed</h1>
-                        {/*<Button onClick={() => { this.setState({ showNewRecipeModal: true }) }}>New Recipe</Button> */}
+                        <h1 className="text-center">{this.props.selectedDog}'s Breed</h1>
+                        {/* <Button variant="primary" type="button" onClick={() => { this.backToDogSelect() }}>Back to Breed Selection</Button> */}
+                        <Button variant="primary" type="button" onClick={() => { this.props.handlebacktohomepage(); this.state.selectedDog = ""; }}>Back to Breed Selection</Button>
+                        {/* <Button variant="primary" type="button" onClick={() => { this.setState({ selectedDog: "" }) }}>Back to Breed Selection</Button> */}
+
                     </div>
-                    {/*}  <Row>
+                    {/*  <Row>
                         {recipesView}
         </Row> */}
 
