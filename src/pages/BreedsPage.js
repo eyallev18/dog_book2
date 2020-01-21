@@ -61,6 +61,19 @@ class BreedsPage extends Component {
 
         let { selectedDog } = this.state;
 
+        // <div>
+
+        //     <Card>
+        //         <Card.Img variant="top" src={dogtype} />
+        //         <Card.Body>
+        //             <Card.Title></Card.Title>
+        //             <Card.Text>
+
+        //             </Card.Text>
+        //         </Card.Body>
+        //     </Card>
+
+        // </div>
 
 
         // const recipesView = recipes.map(recipe =>
@@ -68,25 +81,15 @@ class BreedsPage extends Component {
         //         <RecipeCard recipe={recipe} />
         //     </Col>)
         const listDogImage = this.props.dogsView.map((dogtype, index) => {
-            return (<div>
-
-                <Card>
-                    <Card.Img variant="top" src={dogtype} />
-                    <Card.Body>
-                        <Card.Title></Card.Title>
-                        <Card.Text>
-
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-
-            </div>
-
+            return (
+                <div className="col-md-2 m-2" >
+                    <img src={dogtype} alt="not_found" ></img>
+                </div>
             );
         })
         //  key={index} data-index={index}
         return (
-            <div>
+            <div className="main">
 
                 <Container>
                     <div className="recipes-header">
@@ -96,15 +99,17 @@ class BreedsPage extends Component {
                         {/* <img src={this.props.dogsView[0]} alt="state" /> */}
                         {/* <Button variant="primary" type="button" onClick={() => { this.setState({ selectedDog: "" }) }}>Back to Breed Selection</Button> */}
                     </div>
-                    <div>
-                        <Row>
-                            {/*key={index}>*/}
+                    <div className="row">
 
-                            {listDogImage}
+                        {/*   <Row> */}
+                        {/*key={index}>*/}
+
+                        {listDogImage}
 
 
 
-                        </Row>
+                        {/*    </Row>*/}
+
                     </div>
                     {/*  <Row>
                         {recipesView}
