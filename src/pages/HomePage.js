@@ -32,7 +32,7 @@ class HomePage extends Component {
                         Man's Best Firend
                     </p>
                     <select onChangeCapture={handleSelection} value="" >
-                        <option value="" selected disabled hidden > Choose here</option>
+                        <option value="" selected disabled hidden > Choose here Dog Breed to view </option>
                         {listGroupItems}
                     </select>
 

@@ -1,13 +1,7 @@
 Button {
 margin: 20px;
 }
-.imageview{
-    display: flex;
-   justify-content: center;
-   justify-items: flex-start;
 
-    width:150px;
-}
  img{
     margin:5px;
     padding: 5px;
