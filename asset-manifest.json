@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/dog_book2/static/css/main.28339722.chunk.css",
+    "main.js": "/dog_book2/static/js/main.c1664f3f.chunk.js",
+    "main.js.map": "/dog_book2/static/js/main.c1664f3f.chunk.js.map",
+    "runtime-main.js": "/dog_book2/static/js/runtime-main.d14b0f6e.js",
+    "runtime-main.js.map": "/dog_book2/static/js/runtime-main.d14b0f6e.js.map",
+    "static/css/2.17e5ed98.chunk.css": "/dog_book2/static/css/2.17e5ed98.chunk.css",
+    "static/js/2.aaa5f075.chunk.js": "/dog_book2/static/js/2.aaa5f075.chunk.js",
+    "static/js/2.aaa5f075.chunk.js.map": "/dog_book2/static/js/2.aaa5f075.chunk.js.map",
+    "index.html": "/dog_book2/index.html",
+    "precache-manifest.ce19220892cc9d721f43ae08d7008805.js": "/dog_book2/precache-manifest.ce19220892cc9d721f43ae08d7008805.js",
+    "service-worker.js": "/dog_book2/service-worker.js",
+    "static/css/2.17e5ed98.chunk.css.map": "/dog_book2/static/css/2.17e5ed98.chunk.css.map",
+    "static/css/main.28339722.chunk.css.map": "/dog_book2/static/css/main.28339722.chunk.css.map",
+    "static/js/2.aaa5f075.chunk.js.LICENSE": "/dog_book2/static/js/2.aaa5f075.chunk.js.LICENSE",
+    "static/media/logo.svg": "/dog_book2/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d14b0f6e.js",
+    "static/css/2.17e5ed98.chunk.css",
+    "static/js/2.aaa5f075.chunk.js",
+    "static/css/main.28339722.chunk.css",
+    "static/js/main.c1664f3f.chunk.js"
+  ]
+}
