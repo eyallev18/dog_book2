@@ -5,7 +5,7 @@
     width:80px;
 }
  h4{
-     background-color: chartreuse;
+     color: red;
  }
  .show{
      color:blue;
@@ -35,6 +35,9 @@
      z-index: 7;
  }
  .randomimage{
+     width:90% !important;
+     margin:auto;
      position: relative;
      top: 350px !important;
  }
+ 

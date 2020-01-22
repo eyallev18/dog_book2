@@ -28,7 +28,7 @@ class HomePage extends Component {
         })
 
         const listofdogsImage = this.props.srcOfRandomDogList1.map((dogtype, index) => {
-            return (<div key={index} className="col-md-2 m-2">
+            return (<div key={index} className="col-md-2 m-2 textalign">
                 <h4 className="text-center">{this.props.Capitalize(dogbreeds[index])}</h4>
                 <img src={dogtype.data.message} value={index} />
             </div>
