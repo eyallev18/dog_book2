@@ -12,6 +12,11 @@ export default class SpecificDogPage extends Component {
     }
 
     render() {
+
+        if (!this.props.isSelected) {
+            return <Redirect to="/breeds" />
+        }
+
         return (
             <div className="full_page">
                 <Button variant="primary" type="button" onClick={() => { this.props.handlebacktobreedpage(); }}>Back to Breed Pictured</Button>

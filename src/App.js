@@ -97,9 +97,6 @@ class App extends React.Component {
   }
   render() {
 
-    if ((!this.state.isSelected) && (this.state.value != "select") && (!this.state.value)) {
-      return <Redirect to="/breeds" />
-    }
 
 
     return (
@@ -114,7 +111,7 @@ class App extends React.Component {
 
         </Route>
         <Route exact path="/specificbreed">
-          <SpecificDogPage src={this.state.dogToBig} handlebacktobreedpage={this.handlebacktobreedpage} />
+          <SpecificDogPage src={this.state.dogToBig} handlebacktobreedpage={this.handlebacktobreedpage} isSelected={this.state.isSelected} />
 
         </Route>
 
