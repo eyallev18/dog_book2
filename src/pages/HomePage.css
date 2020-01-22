@@ -4,3 +4,26 @@
 .randomimage{
     width:80px;
 }
+ h4{
+     background-color: chartreuse;
+ }
+ .show{
+     color:blue;
+     text-decoration: underline;
+ }
+ .hidden{
+     display:none;
+ }
+ .flash {
+    animation-name: flash;
+     animation-duration: 0.2s;
+     animation-timing-function: linear;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-play-state: running;
+ }
+ 
+ @keyframes flash {
+     from {color: red;}
+     to {color: black;}
+ }

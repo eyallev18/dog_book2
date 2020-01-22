@@ -10,12 +10,18 @@ import Axios from "axios";
 class HomePage extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            element: "show text-center m-10 flash"
+
+        }
 
         // https://dog.ceo/api/breed/{this.state.dogbreeds}/images/random
 
     }
 
     render() {
+
+
         const { dogbreeds, handleSelection } = this.props;
         const listGroupItems = dogbreeds.map((dogtype, index) => {
             return (<option value={dogtype} key={index} data-index={index} > {dogtype}</option>);
@@ -28,8 +34,11 @@ class HomePage extends Component {
             </div>
             );
         })
-        console.log(this.props.srcOfRandomDogList1)
 
+        if (listofdogsImage.length > 0) {
+            this.state.element += " hidden";
+        }
+        //alert(this.state.element);
         if (this.props.redirectToBreedsPage) {
             return <Redirect to="/breeds" />
         }
@@ -46,7 +55,7 @@ class HomePage extends Component {
                         {listGroupItems}
                     </select>
 
-
+                    <h1 id="hidden" className={this.state.element} >Please wait for random Pictures to be loaded </h1>
                 </Jumbotron>
                 <div className="randomimage row ">
 
