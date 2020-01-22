@@ -13,6 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       dogbreeds: [],
+      srcOfRandomDogList: [],
       value: 'select',
       redirectToBreedsPage: false,
       dogs: [],
@@ -25,17 +26,28 @@ class App extends React.Component {
 
 
   }
+
+
   async   componentDidMount() {
 
-
+    var srcOfRandomDog = []
     const res = await Axios.get('https://dog.ceo/api/breeds/list/all')
-
     const breedNameArray = Object.keys(res.data.message)
+
+    for (let i = 0; i < breedNameArray.length; i++) {
+
+      const newRandom = await Axios.get('https://dog.ceo/api/breed/' + breedNameArray[i] + '/images/random')
+
+      srcOfRandomDog.push(newRandom);
+    }
+
+
     this.setState({
-      dogbreeds: breedNameArray
+      dogbreeds: breedNameArray,
+      srcOfRandomDogList: srcOfRandomDog
 
     });
-
+    console.log(srcOfRandomDog)
 
   }
   async handleSelection(event) {
@@ -103,7 +115,7 @@ class App extends React.Component {
 
       <Switch>
         <Route exact path="/">
-          <HomePage dogbreeds={this.state.dogbreeds} handleSelection={this.handleSelection} redirectToBreedsPage={this.state.redirectToBreedsPage} />
+          <HomePage dogbreeds={this.state.dogbreeds} handleSelection={this.handleSelection} redirectToBreedsPage={this.state.redirectToBreedsPage} srcOfRandomDogList1={this.state.srcOfRandomDogList} />
         </Route>
         <Route exact path="/breeds">
           <BreedsPage selectedDog={this.state.value} handlebacktohomepage={this.handlebacktohomepage} dogsView={this.state.dogs}

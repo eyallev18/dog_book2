@@ -19,7 +19,7 @@ export default class SpecificDogPage extends Component {
 
         return (
             <div className="full_page">
-                <Button variant="primary" type="button" onClick={() => { this.props.handlebacktobreedpage(); }}>Back to Breed Pictured</Button>
+                <Button variant="primary" type="button" onClick={() => { this.props.handlebacktobreedpage(); }}>Back to Breed Pictures</Button>
 
                 <img src={this.props.src} >
 

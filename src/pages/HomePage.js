@@ -11,7 +11,7 @@ class HomePage extends Component {
     constructor(props) {
         super(props);
 
-
+        // https://dog.ceo/api/breed/{this.state.dogbreeds}/images/random
 
     }
 
@@ -20,6 +20,16 @@ class HomePage extends Component {
         const listGroupItems = dogbreeds.map((dogtype, index) => {
             return (<option value={dogtype} key={index} data-index={index} > {dogtype}</option>);
         })
+
+        const listofdogsImage = this.props.srcOfRandomDogList1.map((dogtype, index) => {
+            return (<div key={index} className="col-md-2 m-2">
+                <h4 className="text-center">{dogbreeds[index]}</h4>
+                <img src={dogtype.data.message} value={index} />
+            </div>
+            );
+        })
+        console.log(this.props.srcOfRandomDogList1)
+
         if (this.props.redirectToBreedsPage) {
             return <Redirect to="/breeds" />
         }
@@ -37,8 +47,11 @@ class HomePage extends Component {
                     </select>
 
 
-
                 </Jumbotron>
+                <div className="randomimage row ">
+
+                    {listofdogsImage}
+                </div>
             </div >
         );
     }

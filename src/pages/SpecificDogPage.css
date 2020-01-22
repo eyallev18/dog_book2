@@ -1,5 +1,12 @@
 .full_page{
     width: 50%;
     margin: 20px auto;
+    height: 80%;
+   
+
+}
+.full_page > img{
+    border-radius: 50%;
+    height: 100%;
 
 }
