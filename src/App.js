@@ -24,6 +24,7 @@ class App extends React.Component {
     this.showSpecificDog = this.showSpecificDog.bind(this);
     this.handlebacktobreedpage = this.handlebacktobreedpage.bind(this);
     this.refreshPage = this.refreshPage.bind(this);
+    this.Capitalize = this.Capitalize.bind(this);
 
 
   }
@@ -40,6 +41,7 @@ class App extends React.Component {
       const newRandom = await Axios.get('https://dog.ceo/api/breed/' + breedNameArray[i] + '/images/random')
 
       srcOfRandomDog.push(newRandom);
+
     }
 
 
@@ -48,7 +50,7 @@ class App extends React.Component {
       srcOfRandomDogList: srcOfRandomDog
 
     });
-    console.log(srcOfRandomDog)
+
 
   }
   async handleSelection(event) {
@@ -100,6 +102,9 @@ class App extends React.Component {
 
 
   }
+  Capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
   showSpecificDog(event) {
     this.setState({
@@ -120,15 +125,15 @@ class App extends React.Component {
 
       <Switch>
         <Route exact path="/">
-          <HomePage dogbreeds={this.state.dogbreeds} handleSelection={this.handleSelection} redirectToBreedsPage={this.state.redirectToBreedsPage} srcOfRandomDogList1={this.state.srcOfRandomDogList} refreshPage={this.refreshPage} />
+          <HomePage dogbreeds={this.state.dogbreeds} handleSelection={this.handleSelection} redirectToBreedsPage={this.state.redirectToBreedsPage} srcOfRandomDogList1={this.state.srcOfRandomDogList} refreshPage={this.refreshPage} Capitalize={this.Capitalize} />
         </Route>
         <Route exact path="/breeds">
           <BreedsPage selectedDog={this.state.value} handlebacktohomepage={this.handlebacktohomepage} dogsView={this.state.dogs}
-            showSpecificDog={this.showSpecificDog} selected={this.state.isSelected} />
+            showSpecificDog={this.showSpecificDog} selected={this.state.isSelected} Capitalize={this.Capitalize} />
 
         </Route>
         <Route exact path="/specificbreed">
-          <SpecificDogPage src={this.state.dogToBig} handlebacktobreedpage={this.handlebacktobreedpage} isSelected={this.state.isSelected} />
+          <SpecificDogPage src={this.state.dogToBig} handlebacktobreedpage={this.handlebacktobreedpage} isSelected={this.state.isSelected} selectedDog={this.state.value} Capitalize={this.Capitalize} />
 
         </Route>
 

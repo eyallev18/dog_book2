@@ -29,7 +29,7 @@ class HomePage extends Component {
 
         const listofdogsImage = this.props.srcOfRandomDogList1.map((dogtype, index) => {
             return (<div key={index} className="col-md-2 m-2">
-                <h4 className="text-center">{dogbreeds[index]}</h4>
+                <h4 className="text-center">{this.props.Capitalize(dogbreeds[index])}</h4>
                 <img src={dogtype.data.message} value={index} />
             </div>
             );
@@ -45,7 +45,7 @@ class HomePage extends Component {
         return (
             <div>
 
-                <Jumbotron>
+                <Jumbotron className="tobefix">
                     <h1 className="dogbreed">Dog Book</h1>
                     <p>
                         Man's Best Firend
@@ -56,7 +56,7 @@ class HomePage extends Component {
                     </select>
                     <Button variant="primary" type="button" onClick={() => { this.props.refreshPage(); }}>Please click to refresh images</Button>
 
-                    <h1 id="hidden" className={this.state.element} >Please wait for random Pictures to be loaded </h1>
+                    <h1 id="hidden" className={this.state.element} >Please wait while random dog Pictures are loaded </h1>
                 </Jumbotron>
                 <div className="randomimage row ">
 

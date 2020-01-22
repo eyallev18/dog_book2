@@ -13,3 +13,17 @@ margin: 20px;
    
     width: 100%;
 }
+.dog-header> h1{
+    background-color: greenyellow;
+}
+.dog-header{
+position: fixed;
+top:0;
+left:0;
+width:100%;
+z-index: 7;
+}
+.row{
+    position:relative;
+    top:200px;
+}

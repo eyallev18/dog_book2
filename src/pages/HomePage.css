@@ -27,3 +27,14 @@
      from {color: red;}
      to {color: black;}
  }
+ .tobefix{
+     position: fixed;
+     top:0;
+     left:0;
+     width:100%;
+     z-index: 7;
+ }
+ .randomimage{
+     position:relative;
+     top:350px;
+ }

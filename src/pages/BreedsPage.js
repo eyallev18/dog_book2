@@ -46,8 +46,9 @@ class BreedsPage extends Component {
         return (
             <div className="main">
                 <Container>
-                    <div className="recipes-header">
-                        <h1 className="text-center">{this.props.selectedDog}'s Breed</h1>
+                    <div className="dog-header">
+                        <h1 className="text-center">{this.props.Capitalize(this.props.selectedDog)}'s Breed</h1>
+                        <h2 className="text-center">click on any image to see it in big size</h2>
                         <Button variant="primary" type="button" onClick={() => { this.props.handlebacktohomepage(); this.state.selectedDog = ""; }}>Back to Breed Selection</Button>
                     </div>
                     <div className="row">
