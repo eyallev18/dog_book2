@@ -18,21 +18,29 @@ class BreedsPage extends Component {
             selectedDog: !this.props.selectedDog
         })
     }
-
+    selectedDogId(id) {
+        this.setState({
+            redirectTo: "id"
+        })
+    }
     render() {
 
 
         if ((!this.state.selectedDog) || (this.state.selectedDog === 'select')) {
             return <Redirect to="/" />
         }
+        if (this.props.selected) {
+            return <Redirect to="/specificbreed" />
+        }
         let { selectedDog } = this.state;
 
         const listDogImage = this.props.dogsView.map((dogtype, index) => {
             return (
-                <div className="col-md-2 m-2" >
+                <div key={index} className="col-md-2 m-2" onClick={(e) => { this.props.showSpecificDog(e) }} >
                     <img src={dogtype} alt="not_found" ></img>
                 </div>
             );
+
         })
 
         return (

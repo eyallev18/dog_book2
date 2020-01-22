@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ButtonToolbar, Button } from 'react-bootstrap';
 import BreedsPage from './pages/BreedsPage';
+import SpecificDogPage from './pages/SpecificDogPage';
 import Axios from "axios";
 class App extends React.Component {
   constructor(props) {
@@ -14,10 +15,13 @@ class App extends React.Component {
       dogbreeds: [],
       value: 'select',
       redirectToBreedsPage: false,
-      dogs: []
+      dogs: [],
+      isSelected: false
     }
     this.handleSelection = this.handleSelection.bind(this);
     this.handlebacktohomepage = this.handlebacktohomepage.bind(this);
+    this.showSpecificDog = this.showSpecificDog.bind(this);
+    this.handlebacktobreedpage = this.handlebacktobreedpage.bind(this);
 
 
   }
@@ -73,10 +77,29 @@ class App extends React.Component {
 
 
   }
+  handlebacktobreedpage() {
 
+    this.setState({
+      isSelected: false
+
+
+    })
+
+
+  }
+
+  showSpecificDog(event) {
+    this.setState({
+      dogToBig: event.target.src,
+      isSelected: true
+    })
+
+  }
   render() {
 
-
+    if ((!this.state.isSelected) && (this.state.value != "select") && (!this.state.value)) {
+      return <Redirect to="/breeds" />
+    }
 
 
     return (
@@ -86,11 +109,12 @@ class App extends React.Component {
           <HomePage dogbreeds={this.state.dogbreeds} handleSelection={this.handleSelection} redirectToBreedsPage={this.state.redirectToBreedsPage} />
         </Route>
         <Route exact path="/breeds">
-          <BreedsPage selectedDog={this.state.value} handlebacktohomepage={this.handlebacktohomepage} dogsView={this.state.dogs} />
+          <BreedsPage selectedDog={this.state.value} handlebacktohomepage={this.handlebacktohomepage} dogsView={this.state.dogs}
+            showSpecificDog={this.showSpecificDog} selected={this.state.isSelected} />
 
         </Route>
         <Route exact path="/specificbreed">
-          <Button variant="primary" >Light</Button>
+          <SpecificDogPage src={this.state.dogToBig} handlebacktobreedpage={this.handlebacktobreedpage} />
 
         </Route>
 
