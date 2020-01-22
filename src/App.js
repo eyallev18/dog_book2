@@ -23,6 +23,7 @@ class App extends React.Component {
     this.handlebacktohomepage = this.handlebacktohomepage.bind(this);
     this.showSpecificDog = this.showSpecificDog.bind(this);
     this.handlebacktobreedpage = this.handlebacktobreedpage.bind(this);
+    this.refreshPage = this.refreshPage.bind(this);
 
 
   }
@@ -106,6 +107,10 @@ class App extends React.Component {
       isSelected: true
     })
 
+
+  }
+  refreshPage() {
+    window.location.reload();
   }
   render() {
 
@@ -115,7 +120,7 @@ class App extends React.Component {
 
       <Switch>
         <Route exact path="/">
-          <HomePage dogbreeds={this.state.dogbreeds} handleSelection={this.handleSelection} redirectToBreedsPage={this.state.redirectToBreedsPage} srcOfRandomDogList1={this.state.srcOfRandomDogList} />
+          <HomePage dogbreeds={this.state.dogbreeds} handleSelection={this.handleSelection} redirectToBreedsPage={this.state.redirectToBreedsPage} srcOfRandomDogList1={this.state.srcOfRandomDogList} refreshPage={this.refreshPage} />
         </Route>
         <Route exact path="/breeds">
           <BreedsPage selectedDog={this.state.value} handlebacktohomepage={this.handlebacktohomepage} dogsView={this.state.dogs}

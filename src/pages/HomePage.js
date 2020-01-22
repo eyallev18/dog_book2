@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './HomePage.css';
-import { Jumbotron, DropdownButton, Dropdown } from 'react-bootstrap';
+import { Jumbotron, DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import { Redirect } from 'react-router-dom';
 import Axios from "axios";
 
@@ -54,6 +54,7 @@ class HomePage extends Component {
                         <option value=""  > Choose here Dog Breed to view </option>
                         {listGroupItems}
                     </select>
+                    <Button variant="primary" type="button" onClick={() => { this.props.refreshPage(); }}>Please click to refresh images</Button>
 
                     <h1 id="hidden" className={this.state.element} >Please wait for random Pictures to be loaded </h1>
                 </Jumbotron>
