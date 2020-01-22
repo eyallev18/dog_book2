@@ -35,6 +35,6 @@
      z-index: 7;
  }
  .randomimage{
-     position:relative;
-     top:500px;
+     position: relative;
+     top: 300px !important;
  }
